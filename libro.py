@@ -1,0 +1,13 @@
+class Libro(ItemBiblioteca):
+    def __init__(self, titulo, autor, editorial):
+        super().__init__(titulo, autor) # Herencia: Llama al constructor de la clase base
+        self._editorial = editorial # Encapsulamiento: atributo protegido
+
+    def mostrar_detalles(self):
+        # Polimorfismo: Implementación específica para Libro
+        estado = "Prestado" if self._prestado else "Disponible"
+        return f"Libro: {self._titulo}, Autor: {self._autor}, Editorial: {self._editorial}, Estado: {estado}"
+
+    # Getter para acceder al atributo protegido (Encapsulamiento)
+    def get_editorial(self):
+        return self._editorial
